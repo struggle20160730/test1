@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.MultiProvinces{
+			    position:relative;
+			}
+			.MultiProvincesHide{
+			    position:absolute;
+			    left:163px;
+			    top:36px;
+			    width:282px;
+			    height:145px;
+			    border:1px solid #ccc;
+			    background-color:white;
+			    overflow:auto;
+			}
+			.MultiProvincesHide>ul{
+			    width:100%;
+			    height:100%;
+			    list-style:none;
+			    margin:0 !important;
+			    padding:0 !important;
+			}
+			.MultiProvincesHide>ul>li{
+			    cursor:pointer;
+			    display:inline-block;
+			    float:left;
+			    width:130px;
+			}
+			.recalBox0{
+			    display: inline-block;
+			    width: 16px;
+			    height: 18px;
+			    vertical-align: top;
+			    overflow: hidden;
+			    background: url(img/tree_icons.png) no-repeat -208px -18px;
+			}
+			.recalBox1{
+			    display: inline-block;
+			    width: 16px;
+			    height: 18px;
+			    vertical-align: top;
+			    overflow: hidden;
+			    background: url(img/tree_icons.png) no-repeat -224px -18px;
+			}
+			.MultiProvinces>span{
+			    display: inline-block;
+			    width: 160px;
+			    height: 35px;
+			    line-height: 35px;
+			    text-align: right;
+			    font-size: 16px;
+			    font-family: "PingFang";
+			    color: #747474;
+			    font-weight: bold;
+			}
+			.MultiProvinces>input{
+			    width:281px;
+			    height:35px;
+			    border:1px solid #ccc;
+			    border-radius:4px;
+			    background-color:#fff7ee;
+			}
+			.hide{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+        <div class="MultiProvinces">
+            <span>
+		                模拟多选下拉框
+            </span>
+            <input type="text" placeholder="请选择省份" id="MultiProvincesTop" />
+            <input type="text" placeholder="这是选中的ID值!" id="MultiProvincesBottom" name="city" />
+            <div class="MultiProvincesHide hide">
+                <ul></ul>
+            </div>
+        </div>
+        <input type="button" value="清空选项" id="Claear"/>
+		<script src="js/new_file.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				 var data = [
+		            {id: "110000", text: "北京市"},
+		            {id: "120000", text: "天津市"},
+		            {id: "130000", text: "河北省"},
+		            {id: "140000", text: "山西省"},
+		            {id: "150000", text: "内蒙古自治区"},
+		            {id: "210000", text: "辽宁省"},
+		            {id: "220000", text: "吉林省"},
+		            {id: "230000", text: "黑龙江省"},
+		            {id: "310000", text: "上海市"},
+		            {id: "320000", text: "江苏省"},
+		            {id: "330000", text: "浙江省"},
+		            {id: "340000", text: "安徽省"},
+		            {id: "350000", text: "福建省"},
+		            {id: "360000", text: "江西省"},
+		            {id: "370000", text: "山东省"},
+		            {id: "410000", text: "河南省"},
+		            {id: "420000", text: "湖北省"},
+		            {id: "430000", text: "湖南省"},
+		            {id: "440000", text: "广东省"},
+		            {id: "450000", text: "广西壮族自治区"},
+		            {id: "460000", text: "海南省"},
+		            {id: "500000", text: "重庆市"},
+		            {id: "510000", text: "四川省"},
+		            {id: "520000", text: "贵州省"},
+		            {id: "530000", text: "云南省"},
+		            {id: "540000", text: "西藏自治区"},
+		            {id: "610000", text: "陕西省"},
+		            {id: "620000", text: "甘肃省"},
+		            {id: "630000", text: "青海省"},
+		            {id: "640000", text: "宁夏回族自治区"},
+		            {id: "650000", text: "新疆维吾尔自治区"},
+		            {id: "710000", text: "台湾省"},
+		            {id: "810000", text: "香港特别行政区"},
+		            {id: "820000", text: "澳门特别行政区"}
+		        ]
+				$("#MultiProvincesTop").click(function () {
+		            $(".MultiProvincesHide").removeClass("hide");
+		            for (var k = 0; k < data.length; k++) {
+		                $(".MultiProvincesHide>ul").append("<li>" + "<span class='Images recalBox0'>" + "</span> " + "<span class='dataId hide'>" + data[k].id + "</span><span class='cityName'>" + data[k].text + "</span></li>")
+		            }
+			    });
+		        $(".MultiProvincesHide").mouseleave(function () {
+		            $(".MultiProvincesHide").addClass("hide");
+		        });
+				var dataId = [];//存放省份ID
+		        var cityName = [];//存放省份名称
+		        $(".MultiProvincesHide>ul").on("click", "li", function () {
+		            var className = $(this).children(".Images").attr("class");
+		            if (className.indexOf("recalBox0")>-1) {//第一次点击是添加进去
+		                $(this).children(".Images").addClass("recalBox1").removeClass("recalBox0");
+		                var val = $(this).children(".dataId").text();
+		                var val2 = $(this).children(".cityName").text();
+		                console.log(val, val2);
+		                dataId.push(val);
+		                cityName.push(val2);
+		                $("#MultiProvincesTop").val(cityName);
+		                $("#MultiProvincesBottom").val(dataId);
+		            }
+		            if (className.indexOf("recalBox1") > -1) {//再次点击是取消掉
+		                $(this).children(".Images").addClass("recalBox0").removeClass("recalBox1");
+		                var val = $(this).children(".dataId").text();
+		                var val2 = $(this).children(".cityName").text();
+		                for (var k = 0; k < dataId.length; k++) {
+		                    if (dataId[k] == val) {
+		                        dataId.splice(k, 1);
+		                    }
+		                }
+		                for (var g = 0; g < cityName.length; g++) {
+		                    if (cityName[g] == val2) {
+		                        cityName.splice(g, 1);
+		                    }
+		                }
+		                $("#MultiProvincesTop").val(cityName);
+		                $("#MultiProvincesBottom").val(dataId);
+		            }
+		        });
+		        $("#Claear").click(function(){
+	                $("#MultiProvincesTop").val("");
+	                $("#MultiProvincesBottom").val("");
+	                dataId=[];
+	                cityName=[];   
+	                $("ul>li").children(".Images").addClass("recalBox0").removeClass("recalBox1");
+		        });
+			});
+		</script>
+	</body>
+</html>

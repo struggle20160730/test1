@@ -1,0 +1,19 @@
+@charset "utf-8";
+body>div{width: 500px;margin: 10px auto;}
+.Dialogue{margin: 30px auto;border: 1px solid #ccc;padding: 30px 10px;height: 500px;overflow: auto;}
+.Staff{text-align: right;}
+.CentData{text-align: center;font-size: 25px;font-weight: bold;margin-top: 50px;}
+.Keyboard,.AddPeople{width: 530px;overflow: hidden;}
+.Keyboard>input,.AddPeople>input{float: left;}
+.Conversation,.AddTop{width: 410px;height: 35px;padding-left: 15px;border: 1px solid #ccc;}
+.SendOut,.AddBot{width: 100px;height: 37px;line-height: 37px;background-color: orange;color: white;border: 1px solid orange;cursor: pointer;}
+.PeopleRole{overflow: hidden;width: 530px;margin-bottom: 30px !important;}
+.PeopleRole>div{float: left;width: 55px;text-align: left;padding: 5px 10px;}
+.PeopleRole>label{float: left;text-align: left;cursor: pointer;background-color: white;margin-right: 10px;border: 1px solid #ccc;}
+.PeopleRole>label>input{display: none;}
+.PeopleRole>label>span{display: inline-block;text-align: center;padding: 5px 25px;}
+.BoxxData,.StaffData{background-color: lightskyblue;color: white;max-width: 300px;padding: 10px;display: inline-block;word-break: break-word;border-radius: 5px;}
+.Boss,.Staff{margin-bottom: 10px;overflow: hidden;}
+.StaffCent{float: right;display: inline-block;padding: 10px;}
+.BoxxCent{display: inline-block;padding: 10px;}
+.firebrick{background-color: firebrick !important;color: white;}

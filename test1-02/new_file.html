@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+
+    <video  id="myvideo" src="#"  controls="controls" autoplay="autoplay"></video>    
+    <div id="address"></div>  
+  <script src="//code.jquery.com/jquery-1.9.1.js"></script>  
+<script language="javascript">  
+    $(document).ready(function(){  
+        play();  
+    });  
+     var vList = new Array("http://tx2.a.yximgs.com/upic/2016/04/28/12/BMjAxNjA0MjgxMjA0NThfMTYxNjcxMTA5XzcxMzg1NTY3Ml8xXzM=.mp4", "http://tx2.a.yximgs.com/upic/2016/04/26/17/BMjAxNjA0MjYxNzAwMTNfOTExMjIyMjRfNzEwODQ4Mzg4XzFfMw==.mp4","http://tx2.a.yximgs.com/upic/2016/05/17/14/BMjAxNjA1MTcxNDM1MjdfMTAyMTkxMDQ5Xzc1Mzg2MzI2MV8xXzM=.mp4"); // 初始化播放列表  
+    var vLen = vList.length;  
+    var curr = 0;  
+    var video = document.getElementById("myvideo");      
+    video.addEventListener("ended", function(){  
+//    alert("已播放完成，继续下一个视频");  
+//document.getElementById("address").innerHTML =vList[curr]+"已播放完成，继续下一个视频";  
+    play();  
+});  
+   function play() {  
+        video.src = vList[curr];  
+        video.load();  
+        video.play();  
+        document.getElementById("address").innerHTML ="正在播放"+vList[curr];  
+        curr++;  
+        if(curr >= vLen){  
+            curr = 0; //重新循环播放  
+        }  
+  
+    }  
+     
+</script>  
+		
+		
+		
+	</body>
+</html>

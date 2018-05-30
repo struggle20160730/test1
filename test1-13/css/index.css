@@ -1,0 +1,28 @@
+@charset "utf-8";
+*{margin: 0;padding: 0;}
+.Demo{width: 100%;height: 100%;position: relative;}
+.Demotest1{width: 100%;height: 100%;background-color: red;display: block;}
+.Demotest2{width: 100%;height: 100%;background-color: orange;display: none;}
+.Demotest3{width: 100%;height: 100%;background-color: black;display: none;}
+.Demotest4{width: 100%;height: 100%;background-color: rosybrown;display: none;}
+.Demotest5{width: 100%;height: 100%;background-color: yellow;display: none;}
+.Demotest6{width: 100%;height: 100%;background-color: yellowgreen;display: none;}
+.Demotest7{width: 100%;height: 100%;background-color: chocolate;display: none;}
+.Demotest8{width: 100%;height: 100%;background-color: hotpink;display: none;}
+/*.AboutClass{position: absolute;left: 0;top:0;z-index: 999;}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,95 @@
+body{
+	background-color: lavenderblush;
+}
+.head{
+	height: 1.5rem;
+	background-color: coral;
+	position: relative;
+}
+.head>.head-cent{
+	width: 100%;
+	height: 1.5rem;
+	line-height: 1.5rem;
+	text-align: center;
+	font-size: 0.4rem;
+	color: white;
+}
+.head>.head-right{
+	display: inline-block;
+	position: absolute;
+	right: 0.3rem;
+	top: 0.5rem;
+	font-size: 0.4rem;
+	color: white;
+}
+section{
+	background-color: white;
+	padding: 1.3rem 0 0 0 !important;
+}
+.InformationCentent-top{
+	clear: both;
+	overflow: hidden;
+    padding: 0.3rem;
+    background-color: white;
+}
+.InformationCentent-top>div{
+	width: 33.33%;
+	height: 2.1rem;
+	float: left;
+	text-align: center;
+}
+.InformationCentent-top>div>.ImgIcon{
+	width: 1.2rem;
+	height: 1.2rem;
+	margin: 0 auto;
+	border-radius: 1.2rem;
+	background-color: red;
+	padding-top: 0.26rem;
+	margin-bottom: 0.1rem;
+}
+.InformationCentent-top>div>.ImgIcon>span{
+	font-size: 0.6rem;
+	color: white;
+}
+.ImgIcon1{
+	background-color: orange !important;
+}
+.ImgIcon2{
+	background-color: yellow !important;
+}
+.ImgIcon3{
+	background-color: #00FF7F !important;
+}
+.InformationCentent-center{
+	margin-top: 10px;
+    margin-bottom: 2rem;
+}
+.InformationCentent-center>div{
+	position: relative;
+	border-bottom: 1px solid #ccc;
+	padding: 0.2rem;
+    background-color: white;
+}
+.InformationCentent-center>div>.centerText{
+    height: 1.5rem;
+    padding-left: 1.5rem;
+}
+.InformationCentent-center>div>.centerImg{
+	display: inline-block;
+	width: 1.5rem;
+	height: 1.5rem;
+	background-color: orange;
+	position: absolute;
+	top: 0.2rem;
+	border-radius: 0.3rem;
+}
+.InformationCentent-center>div>.centerText>.TxtTop{
+	padding-left: 0.5rem;
+	font-weight: 700;
+	font-size: 0.4rem;
+	margin-bottom: 0.2rem;
+}
+.InformationCentent-center>div>.centerText>.TxtBot{
+	padding-left: 0.5rem;
+	font-size: 0.4rem;
+}

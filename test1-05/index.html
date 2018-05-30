@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title>菜单</title>
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% "Microsoft YaHei","宋体";}
+#box{background-color: #ccc; margin:auto;width:660px;font-size:66px;height:94px;line-height:94px;overflow:hidden;color:#138eee;text-align:center;padding:0 30px;margin-top:200px;}
+#bt{margin:auto;width:200px;text-align:center;margin-top:75px;font-size:25px;line-height:28px;cursor:pointer;}
+</style>
+<script src="js/jq.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var wid=$(window).width();
+		if(wid<=768){
+			$("#box").css("width","300px");
+			$("#box").css("font-size","25px");
+			$("#box").css("padding","0");
+		}
+	})
+	//准备内容：将所有菜单存储在数组里
+	var namelist =["盖浇饭","炒细面","炒拉条","方便面","炒米饭","酸汤水饺","驴蹄子","兰州拉面","冒菜","羊肉泡馍","黄焖鸡米饭","魏家凉皮","肯德基","米线,肉夹馍","吃什么吃,减肥。","火锅"]
+	var mytime=null;
+	window.onkeydown=function (e) {
+		if(e.keyCode=32){
+			doit();
+		}
+	}
+	var num,box;
+	function doit(){
+		//1.在按钮上创建单击事件
+		//2.改变按钮上的文字
+		var bt=window.document.getElementById("bt");
+		if(mytime==null){
+			bt.innerHTML="停止点菜";
+			show();
+		}else{
+			bt.innerHTML="开始点菜";
+			clearTimeout(mytime);
+			mytime=null;
+		}
+	}
+	function show(){
+		//3.获取展示菜单的div
+		box=window.document.getElementById("box");
+		//4.获取随机数，并且范围要在存储名字的数组个数之内.
+		////求一个最接近它的整数，它的值小于或等于这个浮点数
+		num=Math.floor((Math.random()*10000))%namelist.length;
+		//console.log(num+"--"+namelist.length);
+		//5.根据这个随机数到数组里找菜单
+		//6.将展示菜单的div的内容改成这个菜单
+		box.innerHTML=namelist[num];
+		//7.使用定时器，快速的循环调用该方法.1毫秒一次
+		mytime=setTimeout("show()",1);
+	}
+</script>
+</head>
+<body id="bodybj">
+<div id="box">亲，想好中午吃什么了吗？</div>
+<div id="bt" onClick="doit()">开始点菜</div>
+</body>
+</html>      

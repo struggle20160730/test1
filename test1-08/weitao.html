@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>微淘</title>
+		<link rel="stylesheet" type="text/css" href="css/weitao.css"/>
+	</head>
+	<body>
+		<div class="wehead">
+			<div class="wehead-left">
+				<span class="glyphicon glyphicon-search"></span>
+			</div>
+			<div class="wehead-cent">
+				<div>
+					<span class="BorderColor">
+						关注	
+					</span>
+					<span>
+						发现
+					</span>
+				</div>
+			</div>
+			<div class="wehead-right">
+				<span class="glyphicon glyphicon-user"></span>
+			</div>
+		</div>
+		<div class="CententData">
+			<div class="follow">
+				<div class="follow-top">
+					<div class="colorOrange">全部</div>
+					<div>上新</div>
+					<div>视频直播</div>
+					<div>特别关注</div>
+					<div class="followLast">达人</div>
+				</div>
+				<div class="DataCent">
+					
+				</div>
+			</div>
+			<div class="findData hide">
+				<div class="findData-top">
+					<div class="colorOrange">精选</div>
+					<div>热榜</div>
+					<div>视频</div>
+					<div class="findDataLast">故事</div>
+				</div>
+				<div class="findData-bottom">
+					<div class="findDataBottomImg datable">
+						A21秋款牛仔外套
+					</div>
+					<div class="findDataBottomTittle">
+						<img src="img/14.png" alt="图片丢失"/>
+					</div>
+					<div class="findDataBottomTxt datable">
+						酷时尚潮搭
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+//				默认加载内容
+				$.ajax({
+					type:"get",
+					cache:true,
+					url:"cententData1.html",
+					async:true,
+					success:function(data){//成功
+  						$(".DataCent").html(data);
+			        },   
+			        error : function() {//失败后的回调函数
+			            alert("请求全部的内容失败!");   
+			        }
+				});
+				$(".wehead-cent>div>span").click(function(){
+					$(this).addClass("BorderColor").siblings().removeClass("BorderColor");
+					var index=$(this).index();
+					$(".CententData").children("div").eq(index).removeClass("hide").siblings().addClass("hide");
+				});
+//				切换页面
+				$(".follow-top>div").click(function(){
+					$(this).addClass("colorOrange").siblings().removeClass("colorOrange");
+					var index=$(this).index();
+					if(index==0){
+						var url="cententData1.html";
+					}
+					if(index==1){
+						var url="cententData2.html";
+					}
+					if(index==2){
+						var url="cententData3.html";
+					}
+					if(index==3){
+						var url="cententData4.html";
+					}
+					if(index==4){
+						var url="cententData5.html";
+					}
+					$.ajax({
+						type:"get",
+						cache:true,
+						url:url,
+						async:true,
+						success:function(data){//成功
+	  						$(".DataCent").html(data);
+				        },   
+				        error : function() {//失败后的回调函数
+				            alert("请求全部的内容失败!");   
+				        }
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

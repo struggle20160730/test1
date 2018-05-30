@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>切换轮播</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.css"/>
+		<style type="text/css">
+			.hide{visibility: hidden;position: absolute;z-index: -1;height: 0;}
+			.demo{width: 100%;height: 40px;border-bottom: 1px solid #ccc;overflow: hidden;}
+			.demo>div{display: inline-block;width: 150px;height: 40px;line-height: 40px;text-align: center;cursor: pointer;}
+			.demo2{width: 100%;height: 100px;}
+			.demo2>div{position: relative;} 
+			img{width:100%;height:350px;}	
+			.Color{color: red !important;}
+		</style>		
+	</head>
+	<body>
+		<div class="demo">
+			<div class="Color">左边</div>
+			<div>右边</div>
+		</div>
+		<div class="demo2">
+			<div class="Img1">
+				<div class="swiper-container Img1-1">
+				    <div class="swiper-wrapper">
+				      <div class="swiper-slide">
+				      	<img src="img/20150523203539_w8SeG.jpeg" alt="..."/>
+				      </div>
+				      <div class="swiper-slide">
+				      	<img src="img/23b58PICDUg_1024.PNG" alt="..."/>
+				      </div>
+				      <div class="swiper-slide">
+				      	<img src="img/u=3160797030,2088747699&fm=200&gp=0.jpg" alt="..."/>
+				      </div>
+				    </div>
+				    <!-- Add Pagination -->
+				    <div class="swiper-pagination Img1-2"></div>
+				    <!-- Add Arrows -->
+				    <div class="swiper-button-next Img1-3"></div>
+				    <div class="swiper-button-prev Img1-4"></div>
+				</div>
+			</div>
+			<div class="Img2 hide">
+				<div class="swiper-container Img2-1">
+				    <div class="swiper-wrapper">
+				      <div class="swiper-slide">
+				      	<img src="img/u=3467170169,1132186902&fm=200&gp=0.jpg" alt="..."/>
+				      </div>
+				      <div class="swiper-slide">
+				      	<img src="img/u=3723784612,2573513060&fm=200&gp=0.jpg" alt="..."/>
+				      </div>
+				      <div class="swiper-slide">
+				      	<img src="img/u=735113195,958349734&fm=200&gp=0.jpg" alt="..."/>
+				      </div>
+				    </div>
+				    <!-- Add Pagination -->
+				    <div class="swiper-pagination Img2-2"></div>
+				    <!-- Add Arrows -->
+				    <div class="swiper-button-next Img2-3"></div>
+				    <div class="swiper-button-prev Img2-4"></div>
+				</div>
+			</div>
+		</div>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="js/swiper.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var swiper = new Swiper('.Img1-1', {
+			      spaceBetween: 10,
+			      centeredSlides: true,
+			      autoplay: {
+			        delay: 2500,
+			        disableOnInteraction: false,
+			      },
+			      pagination: {
+			        el: '.Img1-2',
+			        clickable: true,
+			      },
+			      observer:true,
+  			      observeParents:true,
+			      navigation: {
+			        nextEl: '.Img1-3',
+			        prevEl: '.Img1-4',
+			      },
+			    });					
+				var swiper2 = new Swiper('.Img2-1', {
+			      spaceBetween: 10,
+			      centeredSlides: true,
+			      autoplay: {
+			        delay: 2500,
+			        disableOnInteraction: false,
+			      },
+			      pagination: {
+			        el: '.Img2-2',
+			        clickable: true,
+			      },
+			      observer:true,
+			      observeParents:true,
+			      navigation: {
+			        nextEl: '.Img2-3',
+			        prevEl: '.Img2-4',
+			      },
+			    });	
+				$(".demo>div").click(function(){
+					var index=$(this).index();
+					$(".demo2").children("div").eq(index).removeClass("hide").siblings().addClass("hide");		
+					$(this).addClass("Color").siblings().removeClass("Color");					
+				});
+			});
+		</script>
+	</body>
+</html>

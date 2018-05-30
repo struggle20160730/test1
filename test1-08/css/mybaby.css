@@ -1,0 +1,45 @@
+body{
+	background-color: #ccc;
+}
+.backgroundImg{
+	height: 4.5rem;
+}
+.backgroundImg>img{
+	width: 100%;
+	height: 100%;
+}
+.baby{
+	background-color: white;
+	margin-bottom: 10px;
+}
+.CollectionFolder{
+	height: 1.5rem;
+	font-size: 0.4rem;
+}
+.CollectionFolder>div{
+	width: 33.33%;
+	float: left;
+	height: 1.6rem;
+	line-height: 1.6rem;
+}
+.CollectionFolder>div>div{
+	width: 100%;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	text-align: center;
+}
+.BabyMenu{
+	height: 2rem;
+}
+.BabyMenu>img{
+	width: 100%;
+	height: 100%;
+}
+.order{
+	height: 4rem;
+	margin-bottom: 2rem;
+}
+.order>img{
+	width: 100%;
+	height: 100%;
+}

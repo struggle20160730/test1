@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>原生js倒计时</title>
+		<style type="text/css">
+			#demo{
+				width: 30%;
+				margin: 80px auto;
+			}
+			#clock{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo">
+			距离今年五一放假还有 :
+			<span id="clock"></span>
+		</div>
+		
+		<script>
+			var obj = document.getElementById("clock");
+			var endTime = new Date();
+//			先设置结束的时间5月1号,月份的参数是从0开始
+			endTime.setMonth(4,1);
+//			setMonth() 方法用于设置月份。注意： 一月为 0， 十二月为 11,这个方法可用于设置月份中的某一天。
+			endTime.setHours(0,0,0,1);
+//			setHours() 方法用于设置指定的时间的小时字段。
+//			语法:dateObject.setHours(hour,min,sec,millisec)
+//			hour:必需。表示小时的数值，介于 0（午夜） ~ 23（晚上11点） 之间，以本地时间计（下同）。
+//			min:可选。表示分钟的数值，介于 0 ~ 59 之间。
+//			sec:可选。表示秒的数值，介于 0 ~ 59 之间。
+//			millisec:可选。表示毫秒的数值，介于 0 ~ 999之间。
+			window.setInterval(myFun,1)
+//			定时器setInterval
+			function myFun(){
+				var startTime = new Date();
+//				设置开始时间
+				var num = endTime.getTime()-startTime.getTime();
+//				开始时间减去结束时间,拿到中间相差的毫秒数
+				var day = parseInt(num/1000/60/60/24);
+//				parseInt() 函数可解析一个字符串，并返回一个整数。这里是拿到天数
+				var hh = parseInt((num/1000/60/60/24 - day)*24)//小时
+				var mm = parseInt(((num/1000/60/60/24 - day)*24-hh)*60)//分钟
+				var ss = parseInt((((num/1000/60/60/24 - day)*24-hh)*60-mm)*60)//秒
+				var ms = num % 1000 //毫秒
+				obj.innerHTML = day + "天" + hh + "小时" + mm + "分钟"+ ss + "秒" + ms + "毫秒"
+		}
+		</script>
+	</body>
+</html>

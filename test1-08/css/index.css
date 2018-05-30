@@ -1,0 +1,359 @@
+html,body{
+	width: 100%;
+	height: 100%;
+}
+body{
+	max-width: 768px;
+	margin: 0 auto !important;
+}
+h3{
+	margin: 0;
+}
+header{
+	position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 768px;
+    background: red;
+    color: #fff;
+	height: 1.3rem;
+	padding: 0 0.2rem !important;
+    font-size: 0.5rem;
+    z-index: 2;
+}
+header>div{
+	display: inline-block;
+	float: left;
+}
+.header-left{
+	width: 1rem;
+	height: 1.3rem;
+	padding-top: 0.3rem;
+	text-align: center;
+	font-size: 0.5rem;
+}
+.header-center{
+	width: 7.6rem;
+	height: 1.3rem;
+}
+.header-center>input{
+	width: 100%;
+	height: 1.1rem;
+	background-color: red;
+	color: white;
+	font-size: 0.4rem;
+	border-bottom: 1px solid white;
+}
+::-webkit-input-placeholder{color:white;}
+::-moz-placeholder{color:white;}
+:-moz-placeholder{color:white;}
+.header-right{
+	width: 1rem;
+	height: 1.3rem;
+	padding-top: 0.3rem;
+	text-align: center;
+	font-size: 0.5rem;
+}
+section{
+	width: 100%;
+	padding: 1.3rem 0 !important;
+	background-color: red;
+}
+.sectionTwo{
+	width: 100%;
+	height: 4rem;
+}
+.sectionImg{
+	height: 5rem;
+	margin-bottom: 10px;
+}
+section>div>img{
+	width: 100%;
+	height: 100%;
+}
+.sectionTwo>div{
+	width: 100%;
+	height: 2rem;
+}
+.sectionTwo>div>div{
+	width: 20%;
+	height: 100%;
+	font-size: 0.3rem;
+	float: left;
+	text-align: center;
+}
+.top{
+	width: 1.2rem;
+    height: 1.2rem;
+    font-size: 0.3rem;
+    border-radius: 1.3rem;
+    text-align: center;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.top>img{
+	width: 100%;
+	height: 100%;
+}
+.bottom{
+	height: 0.5rem;
+	color: white;
+	text-align: center;
+}
+.Recommend,.Recommend2,.Recommend3{
+	background-color: red;
+}
+.RecommendTitle{
+	text-align: center;
+	font-size: 0.5rem;
+	color: white;
+}
+.Recommend-top{
+	padding: 0.1rem 0.3rem;	
+	clear: both;
+	overflow: hidden;
+}
+.Recommend-top>div{
+	width: 2.25rem;
+    height: 3.5rem;
+    float: left;
+    margin: 0 0.05rem 0.2rem 0.05rem;
+    border-radius: 0.3rem;
+    background-color: white;
+    overflow: hidden;
+}
+.recommendtop{
+	height: 2.3rem;
+}
+.recommendtop>img{
+	width: 100%;
+	height: 100%;
+}
+.recommendbot{
+	height: 1.2rem;
+	color: white;
+	padding-top: 0.2rem;
+}
+.bot1{
+	background-color: orange;
+}
+.bot2{
+	background-color: springgreen;
+}
+.bot3{
+	background-color: darkviolet;
+}
+.bot4{
+	background-color: aqua;
+}
+.bot5{
+	background-color: mediumvioletred;
+}
+.bot6{
+	background-color: cornflowerblue;
+}
+.bot7{
+	background-color: salmon;
+}
+.bot8{
+	background-color: yellow;
+}
+.recommendbotop{
+	text-align: center;
+	font-size: 0.3rem;
+	font-weight: 700;
+}
+.recommendbotoot{
+	font-size: 0.3rem;
+	text-align: center;
+}
+.Recommend2-bottom{
+	width: 93%;
+    height: 4.5rem;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 0.3rem;
+    overflow: hidden;
+}
+.Recommend2-bottom>div{
+	width: 33.33%;
+	height: 100%;
+	float: left;
+	border-right: 1px solid #ccc;	
+}
+.Recommendbot-top{
+	height: 3rem;
+}
+.Recommendbot-top>img{
+	width: 100%;
+	height: 100%;
+}
+.Recommendbot-bot{
+	height: 1.5rem;
+	padding-top: 0.2rem;
+}
+.botTop{
+	text-align: center;
+	font-size: 0.3rem;
+	font-weight: 700;
+	color: darksalmon;
+}
+.totTop{
+	text-align: center;
+	font-size: 0.3rem;
+	color: #ccc;
+}
+.Recommend3{
+    margin: 10px auto;
+}
+.Recommend3-centent{
+    width: 93%;
+    height: 9rem;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    margin: 10px auto 0 auto;
+    background-color: white;
+}
+.Recommend3-centent>div{
+	width: 100%;
+	height: 3rem;
+	border-bottom:1px solid #ccc ;
+}
+.Centent-top,.Centent-center{
+	clear: both;
+	overflow: hidden;
+}
+.Cententop-left{
+	width: 70%;
+	height: 100%;
+	float: left;
+}
+.Cententop-left>img{
+	width: 100%;
+	height: 100%;
+}
+.Cententop-right{
+	width: 30%;
+	height: 100%;
+	float: left;
+}
+.Cententop-right>img{
+	width: 100%;
+	height: 100%;
+}
+.Centent-center>div{
+	width: 50%;
+	height: 100%;
+	float: left;
+	border-right: 1px solid #ccc;
+}
+.Centent-bottom>div{
+	width: 25%;
+	height: 100%;
+	float: left;
+	border-right: 1px solid #ccc;
+}
+.centerTxt{
+	font-size: 0.3rem;
+	font-weight: 700;
+	padding-left: 10px;
+}
+.centerTxt2{
+	font-size: 0.3rem;
+	padding-left: 10px;
+	color: #ccc;	
+}
+.centerImg>img{
+	width: 100%;
+	height: 100%;
+}
+.TopCent{
+	height: 0.5rem;
+}
+.BottomCent{
+	width: 100%;
+	height: 2.5rem;
+}
+.BottomCent>img{
+	width: 100%;
+	height: 100%;
+}
+.fotterBackColor{
+    background-color: red;
+    color: white;
+}
+footer{
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 768px;
+    background: white;
+    color: red;
+	height: 1.3rem;
+    font-size: 0.4rem;
+    z-index: 2;
+}
+footer>div{
+	display: inline-block;
+	float: left;
+	width: 20%;
+	height: 100%;
+	padding-top: 0.1rem;
+}
+footer>div>div{
+	text-align: center;
+}
+.one{
+    padding: 0.15rem 0.5rem;
+}
+.one>div{
+	width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    background-color: red;
+    color: white;
+}
+/*媒体查询*/
+@media screen and (min-width: 568px) {
+	.header-center{
+		width: 8.1rem;
+    }
+    .Recommend-top>div {
+	    width: 2.38rem;
+	}
+}
+@media screen and (min-width: 640px) {
+	.header-center{
+		width: 9.4rem;
+    }
+    .Recommend-top>div {
+	    width: 2.71rem;
+	}
+}
+@media screen and (min-width: 660px) {
+	.header-center{
+		width: 9.9rem;
+    }
+    .Recommend-top>div {
+	    width: 2.8rem;
+	}
+}
+@media screen and (min-width: 732px) {
+	.header-center{
+		width: 11.1rem;
+    }
+    .Recommend-top>div {
+	    width: 2.7rem;
+        margin: 0 0.255rem 0.2rem 0.255rem;
+	}
+}
+@media screen and (min-width: 750px) {
+	.header-center{
+		width: 11.82rem;
+    }
+    .Recommend-top>div {
+	    width: 2.896rem;
+	}
+}

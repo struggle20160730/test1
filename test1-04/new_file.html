@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>倒计时6小时</title>
+		<style type="text/css">
+			#showTime{
+				width: 25%;
+				margin: 0 auto;
+				font-size: 100px;
+				font-family: castellar;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="showTime"></div>
+		
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+		//实现距当前时间6小时后的倒计时，格式为  时：分：秒
+		var y = new Date()
+//		获取当前时间
+		y.setHours(y.getHours()+6);
+//		设置未来时间,6小时之后
+		var obj = document.getElementById("showTime");
+//		接下来使用定时器setInterval,每一秒重复一次
+		setInterval(function(){
+			var x = new Date()
+			var num = y.getTime()-x.getTime();
+//			getTime() 方法可返回距 1970 年 1 月 1 日之间的毫秒数。详见可以得到他们之间相差的毫秒数，转化为时分秒
+			x.setHours(0,0,0,1);
+//			setHours() 方法用于设置指定的时间的小时字段。
+//			语法:dateObject.setHours(hour,min,sec,millisec)
+//			hour:必需。表示小时的数值，介于 0（午夜） ~ 23（晚上11点） 之间，以本地时间计（下同）。
+//			min:可选。表示分钟的数值，介于 0 ~ 59 之间。
+//			sec:可选。表示秒的数值，介于 0 ~ 59 之间。
+//			millisec:可选。表示毫秒的数值，介于 0 ~ 999之间。
+			x.setMilliseconds(num);
+//			setMilliseconds() 方法用于设置指定时间的毫秒字段。
+			obj.innerHTML = x.getHours()+":"+x.getMinutes()+":"+x.getSeconds()
+		},1000)
+//		getHours() 方法可返回小时
+//		getMinutes() 方法可返回分钟
+//		getSeconds() 方法可返回时间的秒。返回值是 0 ~ 59 之间的一个整数。
+		</script>
+	</body>
+</html>

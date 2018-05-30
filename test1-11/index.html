@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>办公室对话</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+		<div class="CentData">
+			办公室对话记录
+		</div>
+		<div class="Dialogue">
+			<div class="Boss">
+				<span class="BoxxCent">老板</span>:
+				<span class="BoxxData">你瞅啥？</span>
+			</div>
+			<div class="Staff">
+				<span class="StaffData">瞅你咋地!</span>
+				<span class="StaffCent">:员工</span>
+			</div>
+		</div>
+		<div class="PeopleRole">
+			<div>
+				角色:
+			</div>
+			<label>
+				<input type="radio" name="people" value="1" /><span>老板</span>
+			</label>
+			<label class="aa">
+				<input type="radio" name="people" value="2" /><span>员工</span>
+			</label>
+		</div>
+		<div class="AddPeople">
+			<input type="text" placeholder="请输入角色名称!" class="AddTop" />
+			<input type="button" value="添加" class="AddBot" />
+		</div>
+		<div class="Keyboard">
+			<input type="text" placeholder="请输入对话内容" class="Conversation" />
+			<input type="button" value="发送" class="SendOut" />
+		</div>
+		
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var FocusVal=0;
+				$(document).keydown(function(event){
+					var keyVal=event.keyCode;
+					if(keyVal==13){
+						if(FocusVal==1){
+							var val=$(".AddTop").val();
+							if(val==""||val==null){
+								alert("角色名称不能为空!!!");
+								return false;
+							}
+							var LabelTxt='<label><input type="radio" name="people" value="2" /><span>'+val+'</span></label>';
+							$(".PeopleRole").append(LabelTxt);
+							$(".AddTop").val("");
+						}
+						if(FocusVal==2){
+							var ValTxt=	$(".Conversation").val();
+							var TxtCent=$('input:radio:checked').next().text();
+							var Boxx='<div class="Boss"><span class="BoxxCent">'+TxtCent+'</span>:<span class="BoxxData">'+ValTxt+'</span></div>';
+							var Staff='<div class="Staff"><span class="StaffCent">:'+TxtCent+'</span><span class="StaffData">'+ValTxt+'</span></div>';
+							var val=$('input:radio:checked').val();
+							if(val==undefined){
+								alert("请选择当前角色!!!");
+								return false;
+							}
+							if(ValTxt==""||ValTxt==null){
+								alert("内容不能为空!!!");
+								return false;
+							}
+							if(val==1){//老板
+								$(".Dialogue").append(Boxx);
+								$(".Conversation").val("");
+							}else{
+								$(".Dialogue").append(Staff);
+								$(".Conversation").val("");
+							}
+						}
+					}
+				});
+				$(".AddTop").focus(function(){//角色名称获取焦点
+					FocusVal=1;
+				});
+				$(".Conversation").focus(function(){//对话内容获取焦点
+					FocusVal=2;
+				});
+				$(".AddBot").click(function(){
+					var val=$(".AddTop").val();
+					if(val==""||val==null){
+						alert("角色名称不能为空!!!");
+						return false;
+					}
+					var LabelTxt='<label><input type="radio" name="people" value="2" /><span>'+val+'</span></label>';
+					$(".PeopleRole").append(LabelTxt);
+					$(".AddTop").val("");
+				});
+				$(".SendOut").click(function(){
+					var ValTxt=	$(".Conversation").val();
+					var TxtCent=$('input:radio:checked').next().text();
+					var Boxx='<div class="Boss"><span class="BoxxCent">'+TxtCent+'</span>:<span class="BoxxData">'+ValTxt+'</span></div>';
+					var Staff='<div class="Staff"><span class="StaffCent">:'+TxtCent+'</span><span class="StaffData">'+ValTxt+'</span></div>';
+					var val=$('input:radio:checked').val();
+					if(val==undefined){
+						alert("请选择当前角色!!!");
+						return false;
+					}
+					if(ValTxt==""||ValTxt==null){
+						alert("内容不能为空!!!");
+						return false;
+					}
+					if(val==1){//老板
+						$(".Dialogue").append(Boxx);
+						$(".Conversation").val("");
+					}else{
+						$(".Dialogue").append(Staff);
+						$(".Conversation").val("");
+					}
+				});
+				$(document).on("click",".PeopleRole>label",function(){
+					$(this).addClass("firebrick").siblings().removeClass("firebrick");
+				});
+			});
+		</script>
+	</body>
+</html>
