@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>五星评价</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+		<div class="order-evaluation clearfix">
+		    <h4>给“魏家凉皮”的评价</h4>
+		    <p>请严肃认真对待此次评价哦！您的评价对我们真的真的非常重要！</p>
+		    <div class="block">
+		        <ul>
+		            <li data-default-index="0">
+	                    <span>
+							<img src="img/x1.png" alt="..."/>
+							<img src="img/x1.png" alt="..."/>
+							<img src="img/x1.png" alt="..."/>
+							<img src="img/x1.png" alt="..."/>
+							<img src="img/x1.png" alt="..."/>
+	                    </span>
+		                <em class="level"></em>
+		            </li>
+		        </ul>
+		    </div>
+		    <div class="order-evaluation-text">
+		                      今天的味道如何呢？辣不辣?
+		    </div>
+		    <div class="order-evaluation-checkbox" id="Checked">
+	            <label>
+	            	<input type="checkbox" name="duoxuan" />专业水平高
+	            </label>
+	            <label>
+	            	<input type="checkbox" name="duoxuan" />专业水平高
+	            </label>
+	            <label>
+	            	<input type="checkbox" name="duoxuan" />交付准时
+	            </label>
+	            <label>
+	            	<input type="checkbox" name="duoxuan" />效果明显
+	            </label>
+	            <label>
+	            	<input type="checkbox" name="duoxuan" />数据分析准确
+	            </label>
+	            <label>
+	            	<input type="checkbox" name="duoxuan" />能力待提高
+	            </label>
+	            <label>
+	            	<input type="checkbox" name="duoxuan" />工期延误
+	            </label>
+		    </div>
+		    <div class="order-evaluation-textarea">
+		        <textarea name="content" id="TextArea1" onkeyup="words_deal();" ></textarea>
+		        <span>还可以输入<em id="textCount">140</em>个字</span>
+		    </div>
+		    <a href="javascript:;" id="order_evaluation">评价完成</a>
+		</div>
+		 
+		<div id="order_evaluate_modal" class="dmlei_tishi_info"></div>
+		<!--星星的隐藏域-->
+		<input type="hidden" id="HideDiv" />
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var CheckIndex=1;//选中的index
+				function ImagesIndex(index){
+			        var str ="";
+			        switch (index)
+			        {
+			            case 0:
+			                str="差评";
+			                break;
+			            case 1:
+			                str="较差";
+			                break;
+			            case 2:
+			                str="中等";
+			                break;
+			            case 3:
+			                str="一般";
+			                break;
+			            case 4:
+			                str="好评";
+			                break;
+			        }
+			        return str;
+			    }
+				//  星星数量
+			    var stars = [
+			        ['x2.png', 'x1.png', 'x1.png', 'x1.png', 'x1.png'],
+			        ['x2.png', 'x2.png', 'x1.png', 'x1.png', 'x1.png'],
+			        ['x2.png', 'x2.png', 'x2.png', 'x1.png', 'x1.png'],
+			        ['x2.png', 'x2.png', 'x2.png', 'x2.png', 'x1.png'],
+			        ['x2.png', 'x2.png', 'x2.png', 'x2.png', 'x2.png'],
+			    ];
+				$(".block li").find("img").mouseenter(function(e) {
+			        var index=$(this).index();
+			        for (var i = CheckIndex; i < 5; i++) {
+			            $(".block li").find("img").eq(i).attr("src", "img/" + stars[index][i]);//切换每个星星
+			        }
+			        $(".level").html(ImagesIndex(index));
+				});
+				$(".block li").find("img").mouseleave(function(e) {
+					var index=CheckIndex-1;
+			        for (var i = 0; i < 5; i++) {
+			            $(".block li").find("img").eq(i).attr("src", "img/" + stars[index][i]);//切换每个星星
+			        }
+			        $(".level").html(ImagesIndex(CheckIndex-1));
+				});
+				$(".block li").find("img").click(function(e) {
+			        var index=$(this).index();
+			        CheckIndex=$(this).index()+1;
+			        $("#HideDiv").val(CheckIndex);//为隐藏域赋值
+			        for (var i = 0; i < 5; i++) {
+			            $(".block li").find("img").eq(i).attr("src", "img/" + stars[index][i]);//切换每个星星
+			        }
+			        $(".level").html(ImagesIndex(index));
+				});
+//				多选				
+				$("#Checked>label").click(function(){
+					var check=$(this).children("input").is(":checked");
+					if(check==true){
+						$(this).addClass("RedBorder");
+					}else{
+						$(this).removeClass("RedBorder");
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
