@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Underscore.js学习</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.Demo{padding-top: 30px;font-size: 25px;}
+			.DemoColor{color: red;}
+			div{text-align: left;margin: 10px 0 0 0;padding: 0 100px;font-size: 16px;line-height: 1.5;}
+			div>span{color: darkcyan;}
+		</style>
+	</head>
+	<body>
+		<div class="Demo">
+			Underscore.js练习,Console.log查看结果!
+		</div>
+		<div class="DemoColor">
+			集合部分：数组或对象的常用方法
+		</div>
+		<div>1.<span>each</span>:对集合循环操作,可以将数组中的值按照顺序打印出来</div>
+		<div>2.<span>map</span>:对集合以map方式遍历，产生一个新数组，这里例子是遍历一遍乘以3，返回新的数组</div>
+		<div>3.<span>reduce</span>:集合元素合并集的到memo,整个数组的和,也可以计算整个数组的乘积</div>
+		<div>4.<span>find</span>:过滤集合中符合条件的第一个元素</div>
+		<div>5.<span>filter</span>:过滤集合中符合条件的元素</div>
+		<div>6.<span>reject</span>:过滤集合中不符合条件的元素</div>
+		<div>7.<span>where</span>:遍历list, 返回新的对象数组,举例，数组中条件一样的可以挑出来组成一个新数组返回</div>
+		<div>8.<span>contains</span>:判断元素是否在list中,举例，数组[1,2,3],如果3在数组中返回true,否则返回false</div>
+		<div>9.<span>invoke</span>:通过函数名调用函数运行,主要是用来排序</div>
+		<div>10.<span>pluck</span>:提取一个集合里指定的属性值,举例，数组中[{name: 'moe', age: 40},{name: 'larry', age: 50}]我指定name,就会返回新数组，拿到所有的name</div>
+		<div>11.<span>max,min,sortBy</span>:取list中的最大,最小元素，自定义比较器</div>
+		<div>12.<span>groupBy</span>:把一个集合分组成多个集合，_.groupBy(list, iteratee, [context]) ,把一个集合分组为多个集合，通过 canshu返回的结果进行分组. 如果 iterator 是一个字符串而不是函数, 那么将使用 iterator 作为各元素的属性名来对比进行分组.
+			举例,_.groupBy(['one', 'two', 'three'], "length"),返回结果两个键名是3和5就是数组的长度，长度一致的分在一个组
+		</div>
+		<div>13.<span>countBy</span>:把一个数据分组后计数,举例,数组[1, 2, 3, 4, 5]按条件分奇偶数,结果{ odd: 3, even: 2 }，分了两组，显示各组数量</div>
+		<div>14.<span>shuffle</span>:随机打乱一个数组的数据顺序</div>
+		<div>15.<span>toArray</span>:将list转换成一个数组</div>
+		<div>16.<span>size</span>:得到list中元素个数</div>
+		<div class="DemoColor">
+			数组部分的常用方法
+		</div>
+		<div>1.<span>first(返回第一个),last(返回最后一个),initial(返回除了最后一个以外其他元素),rest(返回除了第一个以外其他元素)</span>:数组的元素操作</div>
+		<div>2.<span>indexOf,lastIndexOf,sortedIndex</span>:取索引位置</div>
+		<div>3.<span>range</span>:创建一个范围整数数组</div>
+		<div>4.<span>compact</span>:数组去除空值,返回一个除去所有false值的 array副本。 在javascript中, false, null, 0, "", undefined 和 NaN 都是false值. </div>
+		<div>5.<span>flatten</span>:将一个嵌套多层的数组(嵌套可以是任何层数)转换为只有一层的数组</div>
+		<div>6.<span>without</span>:去掉数组中不想要的元素，返回新数组</div>
+		<div>7.<span>union,intersection,difference,uniq</span>:并集，交集，差集，取唯一</div>
+		<div>8.<span>zip</span>:合并多个数组中的元素，是group的反向操作</div>
+		<div>9.<span>object</span>:把数组转换成对象</div>
+		<div>10.<span>invoke</span>:通过函数名调用函数运行</div>
+		<div class="DemoColor">
+			对象部分
+		</div>
+		<div>1.<span>keys,values,paris,invert</span>:取属性名，取属性值，把对象转换成[key,value]数组，对调键值</div>
+		<div>2.<span>has</span>:判断对象是否包含指定的属性名</div>
+		<div>3.<span>has</span>:判断对象是否包含指定的属性名</div>
+		<div>4.<span>has</span>:判断对象是否包含指定的属性名</div>
+		<div>5.<span>has</span>:判断对象是否包含指定的属性名</div>
+		<div>6.<span>has</span>:判断对象是否包含指定的属性名</div>
+		<div>7.<span>has</span>:判断对象是否包含指定的属性名</div>
+		<div>8.<span>has</span>:判断对象是否包含指定的属性名</div>
+		<div>9.<span>has</span>:判断对象是否包含指定的属性名</div>
+		<div>10.<span>has</span>:判断对象是否包含指定的属性名</div>
+		
+		
+		
+
+
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/underscore.js/1.9.0/underscore-min.js"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
