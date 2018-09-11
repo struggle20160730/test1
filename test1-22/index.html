@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>jq获取星期几</title>
+		<style type="text/css">
+			.demo{
+				width: 150px;height: 40px;margin: 250px auto;color: red;text-align: center;line-height: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="demo"></div>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var dt=new Date();
+				var weekDay = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+				console.log("打印数值---",dt.getDay());
+				console.log("今天是:",weekDay[dt.getDay()]);
+				$(".demo").text("今天是:" + weekDay[dt.getDay()]);
+			});
+		</script>
+	</body>
+</html>
