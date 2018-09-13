@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>原生js标签切换</title>
+		<style type="text/css">
+			.hide{display: none;}
+			.show{display: block;}
+			.demo{margin: 200px auto;width: 300px;border: 1px solid #ededed;}
+			.selected{background-color: #fff;color: #000;}
+			.faxianCentdata{width: 300px;overflow: hidden;background-color: #000;color: #fff;}
+			.faxianCentdata>div{width: 33.333%;float: left;line-height: 40px;cursor: pointer;text-align: center;}
+			.faxianData>div{width: 300px;height: 100px;text-align: center;line-height: 100px;}
+		</style>
+	</head>
+	<body>
+		<div class="demo">
+			<div class="faxianCent">
+				<div class="faxianCentdata">
+					<div class="selected">热门</div>
+					<div>关注</div>
+					<div>最新</div>
+				</div>
+			</div>
+			<div class="faxianData">
+				<div class="show">111</div>
+				<div class="hide">222</div>
+				<div class="hide">333</div>
+			</div>			
+		</div>
+		<script type="text/javascript">
+			var aSpan = document.getElementsByClassName('faxianCentdata')[0].getElementsByTagName('div');
+			var aUl = document.getElementsByClassName('faxianData')[0].getElementsByTagName('div');
+			for(i=0; i<aSpan.length; i++) {
+				aSpan[i].index = aUl[i].index = i;
+				aSpan[i].onclick = function () {
+				for(i=0; i<aSpan.length; i++) {
+					aSpan[i].className = '';
+					aUl[i].className = 'hide';
+				}
+				this.className = 'selected';
+				aUl[this.index].className = 'show';
+				}
+			}
+		</script>
+	</body>
+</html>
