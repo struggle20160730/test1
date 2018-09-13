@@ -29,11 +29,11 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-//			var aSpan = document.getElementsByClassName('faxianCentdata')[0].getElementsByTagName('div');
-//			var aUl = document.getElementsByClassName('faxianData')[0].getElementsByTagName('div');
+			var aSpan = document.getElementsByClassName('faxianCentdata')[0].getElementsByTagName('div');
+			var aUl = document.getElementsByClassName('faxianData')[0].getElementsByTagName('div');
 //			如果你的页面出现getElementsByTagName报错未定义或者null,可以换成下面的获取类名方式
-			var aSpan = document.getElementsByClassName('clasname');
-			var aUl = document.getElementsByClassName('DataClassName');
+//			var aSpan = document.getElementsByClassName('clasname');
+//			var aUl = document.getElementsByClassName('DataClassName');
 			for(i=0; i<aSpan.length; i++) {
 				aSpan[i].index = aUl[i].index = i;
 				aSpan[i].onclick = function () {
