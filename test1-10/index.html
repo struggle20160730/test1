@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>laydate</title>
+		<link rel="stylesheet" type="text/css" href="laydate/theme/default/laydate.css"/>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div>
+			可选的日期范围：2018-8-1----------2018-8-18;
+			这个范围以外的日期和	"2018-8-5";
+			["2018-8-3","2018-8-6","2018-8-9","2018-8-23","2018-8-30"]
+			这是要禁用的日期数组全部禁用，不可选。
+		</div>
+		<input type="text" class="layui-input" id="test1">
+		<script type="text/javascript">
+			$(function(){
+				var Data=[];
+				var datatime="2018-8-5";//这是要被禁用的日期
+				var DataTim=["2018-8-3","2018-8-6","2018-8-9","2018-8-23","2018-8-30"];//这是要禁用的日期数组
+				laydate.render({
+				  elem: '#test1' //指定元素
+				  ,value: '2018-08-18' //必须遵循format参数设定的格式
+				  ,ready: function(date){//初始控件打开时的回调
+				    console.log("初始打开回调",date); //得到初始的日期时间对象
+				  	for(var k=0;k<$("td").length;k++){//这里的td是表格中全部的日期
+				  		var val=$("td").eq(k).attr("lay-ymd");//获取全部日期
+				  		Data.push(val);
+				  	}
+				  	for(var g=0;g<Data.length;g++){	
+				  		if(Data[g]==datatime){//单独禁用
+							$("td").eq(g).addClass("laydate-disabled");//设置禁用
+				  		}
+				  	}
+//				          禁用数组中的日期
+					for(var j=0;j<Data.length;j++){
+						for(var w=0;w<DataTim.length;w++){
+							if(Data[j]==DataTim[w]){
+								$("td").eq(j).addClass("laydate-disabled");
+							}
+						}
+					}
+				  }
+				  ,change: function(value, date, endDate){//日期切换时触发的回调
+				    console.log(value); //得到日期生成的值，如：2017-08-18
+				    console.log(date); //得到日期时间对象：{year: 2017, month: 8, date: 18, hours: 0, minutes: 0, seconds: 0}
+				    console.log(endDate); //得结束的日期时间对象，开启范围选择（range: true）才会返回。对象成员同上。
+				  	console.log("日期被切换了----------");
+				  	Data.length=0;
+				  	for(var k=0;k<$("td").length;k++){//这里的td是表格中全部的日期
+				  		var val=$("td").eq(k).attr("lay-ymd");//获取全部日期
+				  		Data.push(val);
+				  	}
+				  	for(var g=0;g<Data.length;g++){	
+				  		if(Data[g]==datatime){//单独禁用
+							$("td").eq(g).addClass("laydate-disabled");//设置禁用
+				  		}
+				  	}
+				   // 禁用数组中的日期
+					for(var j=0;j<Data.length;j++){
+						for(var w=0;w<DataTim.length;w++){
+							if(Data[j]==DataTim[w]){
+								$("td").eq(j).addClass("laydate-disabled");
+							}
+						}
+					}
+				  }
+				  ,done: function(value, date, endDate){//选择完之后触发的回调
+				    console.log(value); //得到日期生成的值，如：2017-08-18
+				    console.log(date); //得到日期时间对象：{year: 2017, month: 8, date: 18, hours: 0, minutes: 0, seconds: 0}
+				    console.log(endDate); //得结束的日期时间对象，开启范围选择（range: true）才会返回。对象成员同上。
+				  	console.log("选中之后----------");
+				  }
+//				     禁用的日期范围
+				  ,min: '2018-8-1'
+				  ,max: '2018-8-18'
+				});
+			});
+		</script>
+	</body>
+</html>
