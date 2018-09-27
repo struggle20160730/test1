@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>手风琴效果</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.css"/>
+		<style type="text/css">
+			.demo{width: 800px;height: 500px;margin: 0 auto;position: relative;overflow: hidden;}
+			.swiper-container{width: 100%;height: 100%;}
+			.swiper-container>.swiper-wrapper{width: 100%;height: 100%;}
+			.swiper-slide{width: 100%;height: 100%;}
+			.swiper-slide>img{width: 100%;height: 100%;}
+			.menuBottom{position: absolute;width: 600px;left: 100px;bottom: 0;z-index: 999;}
+			.menuBottom>div{width: calc((100% - 6px)/4);float: left;margin-right: 2px;position: relative;height: 500px;}
+			.menuBottom>div:last-child{margin-right: 0;}
+			.hide{display: none;}
+			.topback{width: 100%;height: 10px;background-color: orange;position: absolute;left: 0;bottom: 0px;z-index: 99;}
+			.bottomBack{width: 100%;height: 500px;position: absolute;left: 0;top: 500px;background-color: #000;opacity: 0.5;}
+		</style>
+	</head>
+	<body>
+		<div class="demo">
+			<div class="swiper-container">
+			    <div class="swiper-wrapper">
+			      <div class="swiper-slide">
+			      	<img src="img/img1.jpg" alt="..."/>
+			      </div>
+			      <div class="swiper-slide">
+		  	      	<img src="img/img2.jpg" alt="..."/>
+			      </div>
+			      <div class="swiper-slide">
+			      	<img src="img/img3.png" alt="..."/>
+			      </div>
+			      <div class="swiper-slide">
+			      	<img src="img/img4.jpg" alt="..."/>
+			      </div>
+			    </div>
+			</div>
+			<div class="menuBottom">
+				<div>
+					<div class="topback"></div>
+					<div class="bottomBack">
+						8月
+					</div>
+				</div>
+				<div>
+					<div class="topback"></div>
+					<div class="bottomBack">
+						9月
+					</div>
+				</div>
+				<div>
+					<div class="topback"></div>
+					<div class="bottomBack">
+						10月
+					</div>
+				</div>
+				<div>
+					<div class="topback"></div>
+					<div class="bottomBack">
+						10月
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="js/swiper.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+			    var swiper = new Swiper('.swiper-container', {
+			    	observer:true,
+			    	observeParents:true,
+			        spaceBetween: 30,
+			        centeredSlides: true,
+			        autoplay: {
+			        	delay: 2500,
+			        	disableOnInteraction: false,
+			        },
+			        on: {
+					    slideChangeTransitionStart: function(){
+		//					当前正在轮播的图片索引,从0开始
+							var index=this.activeIndex;
+		//			    	底部轮播当切换到哪一个时,底部轮播对应背景色展示
+							var leng=$(".menuBottom>div").length;
+							for(var k=0;k<leng;k++){
+								if(k==this.activeIndex){
+									$(".menuBottom").children("div").children(".bottomBack").animate({top:'500px'},"slow");
+									$(".menuBottom").children("div").eq(k).children(".bottomBack").animate({top:'0px'},"slow");
+									$(".menuBottom").children("div").children(".topback").animate({bottom:'0px'},"slow");
+									$(".menuBottom").children("div").eq(k).children(".topback").animate({bottom:'-10px'},"slow");
+								}
+							}
+					    },
+					},
+			    });
+			    $(".menuBottom>div").mouseenter(function(){
+			    	var index=$(this).index();
+			    	$(".menuBottom>div").children(".bottomBack").animate({top:'500px'},"slow");
+					$(this).children(".bottomBack").animate({top:'0px'},"slow");
+			    	$(".menuBottom>div").children(".topback").animate({bottom:'0px'},"slow");
+					$(this).children(".topback").animate({bottom:'-10px'},"slow");
+			    	swiper.slideToLoop(index, 1000, false);
+			    });
+			});
+		</script>
+	</body>
+</html>

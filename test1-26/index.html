@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="css/swiper.css"/>
+  <style>
+    html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+    .swiper-slide>img{width: 100%;height: 100%;}
+    /*底部轮播*/
+   .Demo{position: relative;width: 100%;height: 100%;}
+   .bottomImages{position: absolute;left: calc((100% - 500px)/2);bottom: 60px;z-index: 999;width: 500px;height: 60px;}
+   .hide{display: none;}
+   .hideRed{background-color: crimson;}
+  </style>
+</head>
+<body>
+	<div class="Demo">
+		<div class="swiper-container topImagesCaontainer">
+		    <div class="swiper-wrapper">
+		      <div class="swiper-slide">
+		      	<img src="img/img1.jpg" alt="..."/>
+		      </div>
+		      <div class="swiper-slide">
+		  	      	<img src="img/img2.jpg" alt="..."/>
+		      </div>
+		      <div class="swiper-slide">
+		      	<img src="img/img3.png" alt="..."/>
+		      </div>
+		      <div class="swiper-slide">
+		      	<img src="img/img4.jpg" alt="..."/>
+		      </div>
+		      <div class="swiper-slide">
+		  	      	<img src="img/img5.jpg" alt="..."/>
+		      </div>
+		      <div class="swiper-slide">
+		      	<img src="img/img6.jpg" alt="..."/>
+		      </div>
+		    </div>
+		    <div class="swiper-button-next"></div>
+		    <div class="swiper-button-prev"></div>
+		</div>		
+		 <!--底部轮播-->
+	    <div class="bottomImages">
+	    	<div class="swiper-container">
+			    <div class="swiper-wrapper">
+			      <div class="swiper-slide">
+		      		<div class="hidetop">Slide 1</div>
+		      		<div class="hideRed hide">城市旅拍*2018-08-05</div>			      		
+				    </div>
+				    <div class="swiper-slide">
+		      		<div class="hidetop">Slide 2</div>
+		      		<div class="hideRed hide">城市旅拍*2018-08-05</div>			      		
+				    </div>
+				    <div class="swiper-slide">
+		      		<div class="hidetop">Slide 3</div>
+		      		<div class="hideRed hide">城市旅拍*2018-08-05</div>			      		
+				    </div>
+				    <div class="swiper-slide">
+		      		<div class="hidetop">Slide 4</div>
+		      		<div class="hideRed hide">城市旅拍*2018-08-05</div>			      		
+				    </div>
+				    <div class="swiper-slide">
+		      		<div class="hidetop">Slide 5</div>
+		      		<div class="hideRed hide">城市旅拍*2018-08-05</div>			      		
+				    </div>
+				    <div class="swiper-slide">
+		      		<div class="hidetop">Slide 6</div>
+		      		<div class="hideRed hide">城市旅拍*2018-08-05</div>			      		
+				    </div>
+			    </div>
+			    <div class="swiper-button-next"></div>
+			    <div class="swiper-button-prev"></div>
+		    </div>
+	    </div>
+	</div>
+
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="js/swiper.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var swiper = new Swiper('.topImagesCaontainer', {
+    	observer:true,
+    	observeParents:true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+        	delay: 2500,
+        	disableOnInteraction: false,
+        },
+        navigation: {
+        	nextEl: '.topImagesCaontainer .swiper-button-next',
+        	prevEl: '.topImagesCaontainer .swiper-button-prev',
+        },
+    });
+		var swiper2 = new Swiper('.bottomImages .swiper-container', {
+					slidesPerView: 4,
+	        spaceBetween: 30,
+	        navigation: {
+	        	nextEl: '.bottomImages .swiper-button-next',
+	        	prevEl: '.bottomImages .swiper-button-prev',
+	        },
+	        on: {
+			    touchStart: function(event){
+			      console.log("触发",event);
+			    },
+			  },
+	    });
+
+//		进入底部轮播时,切换上面的轮播
+			$(".bottomImages .swiper-slide").mouseenter(function(){
+					var index=$(this).index();
+					console.log("当前进入的是第"+index+"张图");
+//					切换上面的轮播
+						swiper.slideToLoop(index, 2500, false);
+						$(".hideRed").addClass("hide");
+						$(".hidetop").removeClass("hide");
+						$(".hideRed").eq(index).removeClass("hide");
+						$(".hidetop").eq(index).addClass("hide");
+			});
+			$(".bottomImages .swiper-slide").mouseleave(function(){
+						var index=$(this).index();
+						$(".hideRed").eq(index).addClass("hide");
+						$(".hidetop").eq(index).removeClass("hide");
+			});
+	    
+	</script>
+</body>
+</html>

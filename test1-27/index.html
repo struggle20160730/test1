@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="css/swiper.css"/>
+  <style>
+    html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      z-index: 99999;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+    .swiper-slide>img{width: 100%;height: 100%;}
+    /*底部轮播*/
+   .Demo{position: relative;width: 100%;height: 500px;overflow: hidden;margin: 0 auto;}
+   .bottomImages{position: absolute;left: calc((100% - 500px)/2);bottom: 60px;z-index: 999;width: 500px;height: 60px;}
+   .hide{display: none;}
+   .hideRed{background-color: crimson;}
+   .sixCircle-top{width: 100%;height: 1px;background-color: #fff;z-index: 99999;position: relative;}
+   .sixCircle-bot{width: 1150px;height: 150px;margin: 0 auto;padding: 0 50px;position: relative;bottom: 80px;z-index: 99999;}
+   .sixCircle{width: 100%;position: absolute;left: 0;bottom: -54px;}
+   .sixCircle-bot>div{width: calc((100% - 150px)/6);margin-right: 30px;float: left;}
+   .sixCircle-bot>div:last-child{margin-right: 0;}
+   .sixCircleImages-top{background-color: #fff;width: 150px;height: 150px;border-radius: 150px;padding: 10px;overflow: hidden;}
+   .sixCircleImages-top>img{width: 100%;height: 100%;border-radius: 150px;}
+   .sixCircleImages-bot{text-align: center;padding: 20px 0;color: #fff;}
+   .orangeBack{background-color: orange !important;}
+  </style>
+</head>
+<body>
+	<div class="Demo">
+		<div class="swiper-container topImagesCaontainer">
+		    <div class="swiper-wrapper">
+		      <div class="swiper-slide">
+		      	<img src="img/img1.jpg" alt="..."/>
+		      </div>
+		      <div class="swiper-slide">
+  	      	<img src="img/img2.jpg" alt="..."/>
+		      </div>
+		      <div class="swiper-slide">
+		      	<img src="img/img3.png" alt="..."/>
+		      </div>
+		      <div class="swiper-slide">
+		      	<img src="img/img4.jpg" alt="..."/>
+		      </div>
+		      <div class="swiper-slide">
+  	      	<img src="img/img5.jpg" alt="..."/>
+		      </div>
+		      <div class="swiper-slide">
+		      	<img src="img/img6.jpg" alt="..."/>
+		      </div>
+		    </div>
+		    <div class="swiper-button-next"></div>
+		    <div class="swiper-button-prev"></div>
+		</div>		
+		<!--底部6个圈-->
+		<div class="sixCircle">
+				<div class="sixCircle-top"></div>
+				<div class="sixCircle-bot">
+						<div>
+							<div class="sixCircleImages-top orangeBack">
+								<img src="img/img1.jpg" alt="..."/>
+							</div>
+							<div class="sixCircleImages-bot">
+								纪实风
+							</div>
+						</div>
+						<div>
+							<div class="sixCircleImages-top">
+								<img src="img/img2.jpg" alt="..."/>
+							</div>
+							<div class="sixCircleImages-bot">
+								甜美风
+							</div>
+						</div>
+						<div>
+							<div class="sixCircleImages-top">
+								<img src="img/img3.png" alt="..."/>
+							</div>
+							<div class="sixCircleImages-bot">
+								公主风
+							</div>
+						</div>
+						<div>
+							<div class="sixCircleImages-top">
+								<img src="img/img4.jpg" alt="..."/>
+							</div>
+							<div class="sixCircleImages-bot">
+								纪实风
+							</div>
+						</div>
+						<div>
+							<div class="sixCircleImages-top">
+								<img src="img/img5.jpg" alt="..."/>
+							</div>
+							<div class="sixCircleImages-bot">
+								旅拍风
+							</div>
+						</div>
+						<div>
+							<div class="sixCircleImages-top">
+								<img src="img/img6.jpg" alt="..."/>
+							</div>
+							<div class="sixCircleImages-bot">
+								韩式风
+							</div>
+						</div>
+				</div>
+		</div>
+	</div>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="js/swiper.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+	    var swiper = new Swiper('.swiper-container', {
+	    	observer:true,
+	    	observeParents:true,
+	        spaceBetween: 30,
+	        centeredSlides: true,
+	        autoplay: {
+	        	delay: 2500,
+	        	disableOnInteraction: false,
+	        },
+	        navigation: {
+	        	nextEl: '.swiper-button-next',
+	        	prevEl: '.swiper-button-prev',
+	        },
+	        on: {
+				    slideChangeTransitionStart: function(){
+				    	var index=this.activeIndex;
+				      console.log("当前是第"+this.activeIndex+"张图");
+				      $(".sixCircleImages-top").removeClass("orangeBack");
+				      $(".sixCircle-bot").children("div").eq(index).children(".sixCircleImages-top").addClass("orangeBack");
+				    },
+				  },
+	    });
+			var wid=$(window).width();
+			var wid2=(wid - 1200)/2;
+			console.log("宽度",wid2);
+			$(".swiper-button-next").css("right",wid2);
+			$(".swiper-button-prev").css("left",wid2);
+			$(".swiper-button-prev").css("top","350px");
+			$(".swiper-button-next").css("top","350px");
+			$(".swiper-button-prev").css("z-index","9999");
+			$(".swiper-button-next").css("z-index","9999");
+			$(".sixCircle-bot>div").mouseenter(function(){
+				var index=$(this).index();
+				console.log("打印索引",index);
+				$(".sixCircleImages-top").removeClass("orangeBack");
+	      $(".sixCircle-bot").children("div").eq(index).children(".sixCircleImages-top").addClass("orangeBack");
+				swiper.slideTo(index, 1000, false);
+			});
+	</script>
+</body>
+</html>
