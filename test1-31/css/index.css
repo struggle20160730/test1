@@ -1,0 +1,20 @@
+@charset "utf-8";
+.test{padding: 20px;border-bottom: 1px solid #ededed;color: red;background-color: #ffffff;width: 300px;margin: 0 auto;text-align: center;}
+.test:nth-child(2n){background-color: #7E8C8D;color: #ffffff;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
