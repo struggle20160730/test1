@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>密码输入框</title>
+		<style type="text/css">
+			.payment-password {
+				position: fixed;
+				transform: translate3d(-50%, -50%, 0);
+				left: 50%;
+				top: 50%;
+				text-align: center;
+				background: #fff;
+				width: 606px;
+				height: 368px;
+				background: rgba(255, 255, 255, 1);
+				box-shadow: 0px 0px 8px 0px rgba(4, 0, 0, 0.35);
+			}
+			
+			.payment-password-title {
+				font-size: 16px;
+				padding-top: 72px;
+			}
+			
+			.payment-close {
+				position: absolute;
+				right: 35px;
+				top: 22px;
+				color: #CCCCCC;
+				font-size: 35px;
+			}
+			
+			.payment-password-btn {
+				cursor: pointer;
+				margin: 92px auto 0;
+				color: #fff;
+				line-height: 47px;
+				width: 167px;
+				height: 47px;
+				background: rgba(5, 59, 127, 1);
+				border-radius: 3px;
+			}
+			
+			.six-password {
+				border: 1px solid rgba(5, 59, 127, 1);
+				border-right: none;
+				display: flex;
+				margin: 35px auto;
+				width: 282px;
+				height: 47px;
+				line-height: 47px;
+			}
+			
+			.password-item {
+				line-height: 47px;
+				font-size: 24px;
+				width: 47px;
+				height: 47px;
+				border-right: 1px solid rgba(5, 59, 127, 1);
+			}
+			
+			.shurumima {
+				width: 0;
+				height: 0;
+				overflow: hidden;
+				border: none;
+			}
+			
+			.problemRight-title {
+				text-align: center;
+				font-weight: 700;
+				padding: 10px 0px;
+			}
+			
+			.problemRight-content {
+				padding: 0 30px;
+			}
+			
+			.paymentCon-right>a:first-child {
+				padding-top: 0 !important;
+				color: #fff;
+				background: #ff9800;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="payment-password hide">
+			<div class="payment-close">X</div>
+			<div class="payment-password-title">请输入密码</div>
+			<input class="shurumima" type="text" maxlength="6" />
+			<div class="six-password">
+				<div class="password-item"></div>
+				<div class="password-item"></div>
+				<div class="password-item"></div>
+				<div class="password-item"></div>
+				<div class="password-item"></div>
+				<div class="password-item"></div>
+			</div>
+			<div class="payment-password-btn">确定支付</div>
+		</div>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				// 输入框点击聚焦
+				$('.six-password').click(function() {
+					$('.shurumima').focus();
+					$('.shurumima').val('');
+					Array.from($('.password-item')).forEach((item, index) => {
+						console.log("密码", item);
+						console.log("密码222", index);
+						$(item).text('');
+					});
+				});
+				// 关闭密码框
+				$(document).on('click', '.payment-close', function() {
+					$('.payment-password').addClass('hide');
+					$('.shurumima').val('');
+					Array.from($('.password-item')).forEach((item, index) => {
+						$(item).text('');
+					});
+				});
+				// 输入密码
+				$(document).on('input', '.shurumima', function() {
+					var val = $(this).val();
+					var length = val.toString().length;
+					Array.from($('.password-item')).forEach((item, index) => {
+						if(index < length) {
+							$(item).text('*');
+						} else {
+							$(item).text('');
+						}
+					});
+					passwordCode = val.slice(0, 6);
+				});
+			});
+		</script>
+	</body>
+
+</html>
