@@ -29,7 +29,7 @@ html,body{font-family: "宋体";max-width: 750px;margin: 0 auto;}
 .cent{padding: .3rem;font-size: .38rem;line-height:2;}
 .menu_food_img{width: 100%;min-height: 5.6rem;}
 .menu_food_img>img{max-width: 100%;height: auto;}
-.menu_food{padding: .5rem .3rem;text-align: center;}
+.menu_food{padding: .5rem .3rem 2rem .3rem;text-align: center;}
 .menu_food_cent{margin: .5rem 0;font-weight: bold;font-size: .375rem;}
 .start_menu{display: block;width: 100%;line-height: 1.5rem;background-color: rgb(102, 178, 254);color: #FFFFFF;cursor: pointer;font-size: .4rem;position: fixed;left: 0;bottom: 0;z-index: 9;}
 .menu_dsc{line-height: 2;font-size: .4rem;}
