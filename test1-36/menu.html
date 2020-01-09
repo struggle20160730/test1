@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="flexible" content="initial-dpr=2" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>生成菜单</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+	</head>
+
+	<body>
+		<div class="menu_food">
+			<div class="menu_food_img flex">
+				<img src="img/12.png" alt="..." />
+			</div>
+			<div class="menu_food_cent" id="box">亲,想好吃什么了吗?</div>
+			<div class="menu_dsc"></div>
+			<div class="start_menu" id="bt">开始点菜</div>
+		</div>
+		<script src="js/jq.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+				//准备内容：将所有菜单存储在数组里
+				var namelist = [{
+					name:'西冷牛排',
+					img:'img/72.jpg',
+					dsc:'可算是牛排中的经典，由于是牛外脊，在肉的外沿带一圈白色的肉筋，总体口感韧度强、肉质硬、有嚼头，切肉时连筋带肉一起切，不能煎得过熟，适合年轻人。'
+				},{
+					name:'炒细面',
+					img:'img/73.jpg',
+					dsc:'炒细面是一道由龙须面、卷心菜等食材制成的美食。'
+				},{
+					name:'炒泡面',
+					img:'img/74.jpg',
+					dsc:'洋葱，香肠，一包你喜欢的口味方便面，一个煮好的鸡蛋，少许料包。'
+				},{
+					name:'饺子',
+					img:'img/75.jpg',
+					dsc:'饺子，是中国传统食物。饺子源于古代的角子。饺子原名“娇耳”，是我国邓州人医圣张仲景首先发明的，距今已有一千八百多年的历史了。是深受中国人民喜爱的传统特色食品，又称水饺，是中国民间的主食和地方小吃，也是年节食品。有一句民谣叫“大寒小寒，吃饺子过年。”饺子多用面皮包馅水煮而成。'
+				},{
+					name:'吃什么吃、减肥!!!',
+					img:'img/78.jpg',
+					dsc:'减肥属于以减少人体过度的脂肪、体重为目的的行为方式。适度减重可降低患肥胖症的风险，也可提高有肥胖并发症的患者的健康水平。'
+				},{
+					name:'炒菜米饭',
+					img:'img/76.jpg',
+					dsc:'炒菜，中国菜的常用制作方法，将一种或几种菜在特制的凹型锅内，以火传导到铁锅中的热度为载体，加入油、佐料和菜品后用特制工具“锅铲”翻动将菜炒熟的烹饪过程。'
+				},{
+					name:'馒头+菜',
+					img:'img/77.jpg',
+					dsc:'馒头，别称“馍”“馍馍”“蒸馍”，中国传统面食之一，传说是三国蜀汉丞相诸葛亮所发明，是一种用发酵的面蒸成的食品。馒头以小麦面粉为主要原料，是中国人日常主食之一。'
+				},{
+					name:'吃什么吃、减肥!!!',
+					img:'img/78.jpg',
+					dsc:'减肥属于以减少人体过度的脂肪、体重为目的的行为方式。适度减重可降低患肥胖症的风险，也可提高有肥胖并发症的患者的健康水平。'
+				},{
+					name:'炒米饭',
+					img:'img/79.jpg',
+					dsc:'炒米饭是一道来源于粤系菜的家常菜品。主料是煮好的米饭、一些菜肴、鸡蛋，还可以依据自己的口味添加其他配料，主要烹饪工艺是炒。口感独特，饭粒软糯、入味，鲜香。'
+				},{
+					name:'米线,肉夹馍',
+					img:'img/80.jpg',
+					dsc:'米线，中华传统风味小吃，云南称米线，中国其他地区称米粉。肉夹馍是古汉语“肉夹于馍”的简称，中国陕西省传统特色食物之一。'
+				},{
+					name:'凉皮',
+					img:'img/81.jpg',
+					dsc:'凉皮，起源于陕西关中地区的汉族传统美食，是擀面皮、面皮、米皮、酿皮的统称。流行于中国北方地区。是不可多得的天然绿色无公害食品。'
+				},{
+					name:'砂锅',
+					img:'img/82.jpg',
+					dsc:'砂锅（外文名：Casseroles）是一种炊具。传统砂锅是由不易传热的石英、长石、粘土等原料配合成的陶瓷制品，经过高温烧制而成，具有通气性，吸附性，传热均匀，散热慢等特点。依靠砂锅的菜谱有砂锅鸡、砂锅豆腐、砂锅鱼头等。'
+				},{
+					name:'火锅',
+					img:'img/83.jpg',
+					dsc:'火锅(英语：Hot Pot)，古称“古董羹”，因食物投入沸水时发出的“咕咚”声而得名，它是中国独创的美食，历史悠久，是一种老少皆宜的食物。周代的鼎器应是火锅最早的雏形，据考证，战国时期即有火锅，时人以陶罐为锅，到宋代，火锅的吃法在民间已十分常见，南宋林洪的《山家清供》食谱中，便有同友人吃火锅的介绍。元代，火锅流传到蒙古一带，用来煮牛羊肉。到清代，火锅不仅在民间流行，而且成了一道著名的“宫廷菜”，用料是山鸡等野味。'
+				},{
+					name:'吃什么吃、减肥!!!',
+					img:'img/78.jpg',
+					dsc:'减肥属于以减少人体过度的脂肪、体重为目的的行为方式。适度减重可降低患肥胖症的风险，也可提高有肥胖并发症的患者的健康水平。'
+				},{
+					name:'烤肉',
+					img:'img/84.jpg',
+					dsc:'烤肉（barbecues），是一道菜品，制作原料有猪肉、牛肉、蔬菜、海鲜等。独具风味，历史悠久，有浓郁的香味和鲜美的味道，可大大提高食欲。值得一提的是，现代烤肉与刀耕火种时的烤肉并不相同。据《汉代画象全集》可知，早在两汉时期就有体系完备的烤肉烤食讲究 。'
+				},{
+					name:'泡馍',
+					img:'img/85.jpg',
+					dsc:'牛羊肉泡馍，最早为西周礼馔，历史悠久。据史料记载，牛羊肉泡馍是在古代牛羊羹的基础上演变而成的。古代许多文献，如《礼记》以及先秦诸子，都曾提及牛羊肉羹。最初多用于祭祀及宫廷御筵。'
+				}]
+				var mytime = null;
+				var num, box;
+
+				$(".start_menu").click(function() {
+					doit()
+				});
+				function doit() {
+					//改变按钮上的文字
+					var bt = window.document.getElementById("bt");
+					if(mytime == null) {
+						$(".menu_food_img>img").attr("src","img/42.gif");
+						show();
+					} else {
+						bt.innerHTML = "开始点菜";
+						clearTimeout(mytime);
+						$(".menu_food_img>img").attr("src",namelist[num].img);
+						$(".menu_dsc").text(namelist[num].dsc);
+						mytime = null;
+					}
+				}
+				function show() {
+					//3.获取展示菜单的div
+					box = window.document.getElementById("box");
+					//4.获取随机数，并且范围要在存储名字的数组个数之内.
+					//求一个最接近它的整数，它的值小于或等于这个浮点数
+					num = Math.floor((Math.random() * 10000)) % namelist.length;
+					//console.log(num+"--"+namelist.length);
+					//5.根据这个随机数到数组里找菜单
+					//6.将展示菜单的div的内容改成这个菜单
+					box.innerHTML = namelist[num].name;
+					//7.使用定时器，快速的循环调用该方法.1毫秒一次
+					mytime = setTimeout("show()", 1);
+				}
+		</script>
+	</body>
+
+</html>

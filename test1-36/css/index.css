@@ -1,0 +1,36 @@
+@charset "utf-8";
+html,body{font-family: "宋体";max-width: 750px;margin: 0 auto;}
+.phone_cent{max-width: 750px;margin: 0 auto;}
+.flex{display: flex;justify-content: center;align-items: center;}
+.heg{widows: 100%;height: .3rem;background-color: #ededed;}
+.phone_cent header{background-color: #0e9f85;text-align: center;padding: .4rem 0;color: #ffffff;font-size: .4rem;}
+.phone_cent .swiper-slide{background-position: center center !important;background-size: 100% 100% !important;}
+.phone_cent .swiper-container{width: 100%;height: 5rem;}
+.menu{padding: .3rem;color: #ffffff;font-size: .4rem;}
+.menu img{width: 1rem;margin-bottom: .3rem;}
+.menu_top>a{flex: 1;flex-direction: column;padding: .5rem;color: #ffffff;}
+.menu_top>a:nth-child(1){background-color: rgb(240, 153, 82);margin-right: .3rem;}
+.menu_top>a:nth-child(2){background-color: rgb(146, 201, 58);margin-right: .3rem;}
+.menu_top>a:nth-child(3){background-color: rgb(102, 178, 254);}
+.menu_bot{width: 100%;background-color: rgb(230, 101, 101);padding: .3rem 0;color: #FFFFFF;}
+.menu_top{width: 100%;margin-bottom: .3rem;}
+.menu_bot img{margin-bottom: 0.1rem;}
+.padd_room{padding: .3rem;}
+.border_top{border-bottom: 1px solid #ededed;padding-bottom: .3rem;font-size: .4rem;}
+.padd_room_bot{width: 100%;padding-top: .3rem;flex-wrap: wrap;justify-content: flex-start;}
+.padd_room_bot>div{width: calc((100% - 0.3rem)/2);}
+.padd_room_bot_top{height: 3rem;overflow: hidden;}
+.padd_room_bot>div:nth-child(odd){margin-right: .3rem;}
+.padd_room_bot>div img{width: 100%;height: auto;}
+.padd_room_bot_txt{padding: .3rem 0;text-align: center;}
+.padd_room_botcent>a{display: block;width: 100%;padding: .3rem 0;border-bottom: 1px dashed #ededed;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: .375rem;}
+.title{text-align: center;padding: .5rem .3rem .3rem .3rem;font-size: .4rem;font-weight: bold;}
+.time{text-align: right;font-size: .375rem;padding: 0 .3rem;}
+.cent{padding: .3rem;font-size: .38rem;line-height:2;}
+.menu_food_img{width: 100%;min-height: 5.6rem;}
+.menu_food_img>img{max-width: 100%;height: auto;}
+.menu_food{padding: .5rem .3rem;text-align: center;}
+.menu_food_cent{margin: .5rem 0;font-weight: bold;font-size: .375rem;}
+.start_menu{display: block;margin: 1rem auto 0 auto;width: 100%;line-height: 1rem;background-color: rgb(102, 178, 254);color: #FFFFFF;cursor: pointer;font-size: .4rem;position: fixed;left: 0;bottom: 0;z-index: 9;}
+.menu_dsc{line-height: 2;font-size: .4rem;}
+
