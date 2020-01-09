@@ -12,7 +12,7 @@
 		<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
 	</head>
 
-	<body>
+	<body id="body" style="visibility: hidden;">
 		<div class="title">
 			完整食物相克表
 		</div>
@@ -232,7 +232,9 @@
 			<br />210、果汁与虾相克：同食会腹泻。
 			<br />211、蜜与毛蟹相克：同食会引起中毒
 		</div>
-
+		<script type="text/javascript">
+			document.getElementById('body').style.visibility = "visible";
+		</script>
 	</body>
 
 </html>

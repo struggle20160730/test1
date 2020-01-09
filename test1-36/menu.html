@@ -13,7 +13,11 @@
 	</head>
 
 	<body>
-		<div class="menu_food">
+		<div class="loading flex">
+			<img src="img/42.gif" alt="..."/>
+			<div>努力加载中</div>
+		</div>
+		<div class="menu_food" id="body" style="visibility: hidden;">
 			<div class="menu_food_img flex">
 				<img src="img/12.png" alt="..." />
 			</div>
@@ -23,6 +27,8 @@
 		</div>
 		<script src="js/jq.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+				document.getElementById('body').style.visibility = "visible";
+				$(".loading").hide();
 				//准备内容：将所有菜单存储在数组里
 				var namelist = [{
 					name:'西冷牛排',

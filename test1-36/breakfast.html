@@ -11,7 +11,11 @@
 		<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
 	</head>
 	<body>
-		<div class="appreciate padd_room">
+		<div class="loading flex">
+			<img src="img/42.gif" alt="..."/>
+			<div>努力加载中</div>
+		</div>
+		<div class="appreciate padd_room" id="body" style="visibility: hidden;">
 				<div class="border_top">家门口都有的卖</div>
 				<div class="padd_room_bot flex">
 					<div>
@@ -76,5 +80,13 @@
 					</div>
 				</div>
 			</div>
+			<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+			<script src="js/swiper.js" type="text/javascript" charset="utf-8"></script>
+			<script type="text/javascript">
+				$(function() {
+				    document.getElementById('body').style.visibility = "visible";
+					$(".loading").hide();
+				});
+			</script>
 	</body>
 </html>

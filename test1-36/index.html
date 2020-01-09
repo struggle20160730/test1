@@ -11,9 +11,13 @@
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
 		<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
 	</head>
-
+	
 	<body>
-		<div class="phone_cent">
+		<div class="loading flex">
+			<img src="img/42.gif" alt="..."/>
+			<div>努力加载中</div>
+		</div>
+		<div class="phone_cent" id="body" style="visibility: hidden;">
 			<header>不知道吃啥就看看</header>
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
@@ -129,6 +133,8 @@
 		<script src="js/swiper.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function() {
+			    document.getElementById('body').style.visibility = "visible";
+				$(".loading").hide();
 				var swiper = new Swiper('.swiper-container', {
 					spaceBetween: 30,
 					loop:true,
